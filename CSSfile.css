@@ -1,0 +1,33 @@
+.user-container {
+    width: 50%;
+    margin: auto;
+    margin-bottom: 5px;
+    border-radius: 8px;
+    /*   border: 1px solid blue; */
+    background: linear-gradient(to right, #00aaff, #00ff6c);
+    padding: 5px;
+    transition: all 0.5s;
+  }
+  
+  .user-image {
+    border-radius: 50%;
+    height: 75px;
+  }
+  
+  .user-name {
+    color: #eee;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: bold;
+  }
+  
+  .user-time {
+    color: teal;
+    font-size: 12px;
+  }
+  
+  .user-container:hover {
+    box-shadow: 6px 6px 12px #d0d0d0, -6px -6px 12px #f0f0f0;
+    transform: scale(1.1);
+  }
+  
