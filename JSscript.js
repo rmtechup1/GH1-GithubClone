@@ -1,74 +1,3 @@
-const USERS_URL = "https://60c98aa8772a760017203b57.mockapi.io/users";
-
-// fetch - GET  console.log the data
-
-// fetch(USERS_URL, {
-//   method: "GET"
-// })
-//   .then((response) => response.json())
-//   .then((users) => {
-//     const userList = document.querySelector(".user-list");
-
-//     // users.name - this will not work
-
-//     users.forEach((user) => {
-//       console.log(user);
-//       const userContainer = document.createElement("div")
-
-//       const userName = document.createElement("p");
-//       userName.innerText = user.name;
-//       // userList.append(userName);
-//       // p create then append
-//       // avatar (img)
-
-//       const userImage = document.createElement("img");
-//       userImage.src = user.avatar;
-//       // userList.append(userImage);
-
-//       // createdAt
-//      const userTime = document.createElement("p");
-//       userTime.innerText = user.createdAt;
-//       userContainer.append(userName, userImage, userTime);
-//       userList.append(userContainer);
-//     });
-
-//     // console.log(users);
-//   });
-
-// CRUD
-// C- Create|Post
-// R - Read|Get
-// U - Update|Put/Patch
-// D - Delete|Delete
-
-// Write functionality, make the code better, style
-/*
-fetch(USERS_URL, {
-  method: "GET"
-})
-  .then((response) => response.json())
-  .then((users) => {
-    const userList = document.querySelector(".user-list");
-    users.forEach((user) => {
-      console.log(user);
-      const userContainer = document.createElement("div");
-      userContainer.className = "user-container";
-
-      userContainer.innerHTML = `
-        <p class="user-name">${user.name}</p>
-       <img class="user-image" src=${user.avatar}></img>
-       <p class="user-time">${new Date(user.createdAt).toDateString()}</p>
-      `;
-
-      // userContainer.append(userName, userImage, userTime);
-      userList.append(userContainer);
-    });
-
-    // console.log(users);
-  });
-*/
-
-
 const GITHUB_APIUrl = "https://api.github.com";
 
 
@@ -88,10 +17,29 @@ function createURL_listRepoContents(repoOwnerUsername, repoName, pathInRepo=null
   return(GITHUB_APIUrl+ `/repos/${repoOwnerUsername}/${repoName}/contents/${pathInRepo}`);
 }
 
-console.log(createURL_listRepos("reach2arunprakash", 5));
 
 
-fetch(createURL_listRepos("donnemartin", 5), {
+
+//console.log(createURL_listRepos("reach2arunprakash", 5));
+
+
+
+let userSearchInput = "";
+userSearchInput = document.getElementById("searchBox_RepoAndUser").value;
+console.log(userSearchInput);
+
+
+// userSearchInput = document.getElementById("searchBox_RepoAndUser");
+// userSearchInput.addEventListener("keyup", function(event) {
+//   if (event.keyCode === 13) {
+//       event.preventDefault();
+//       document.getElementById("searchBox_RepoAndUser").click();
+//   }
+// });
+
+
+
+fetch(createURL_listRepos(userSearchInput, 5), {
   method: "GET",
   headers: {'accept': 'application/vnd.github.v3+json'},
 })
@@ -104,9 +52,9 @@ fetch(createURL_listRepos("donnemartin", 5), {
       repoContainer.className = "repo-container";
 
       repoContainer.innerHTML = `
-        <p class="user-name">${individualRepo.name}</p>
+        <p class="repo-name">${individualRepo.name}</p>
         <p class="user-name">${individualRepo.description}</p>
-       <p class="user-time">${new Date(individualRepo.updated_at).toDateString()}</p>
+       <p class="user-time">Updated on ${new Date(individualRepo.updated_at).toDateString()}</p>
       `;
       repoList.append(repoContainer);
     });

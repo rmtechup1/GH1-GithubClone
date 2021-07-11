@@ -1,21 +1,10 @@
-.user-container {
-    width: 50%;
-    margin: auto;
-    margin-bottom: 5px;
-    border-radius: 8px;
-    /*   border: 1px solid blue; */
-    background: linear-gradient(to right, #00aaff, #00ff6c);
-    padding: 5px;
-    transition: all 0.5s;
-  }
-  
- .repo-container {
+.repo-container {
   width: 50%;
   margin: auto;
-  margin-bottom: 5px;
-  border-radius: 8px;
-  /*   border: 1px solid blue; */
-  background: linear-gradient(to right, #00aaff, #00ff6c);
+  margin-bottom: 10px ;
+  /*border-radius: 8px;*/
+  border: 1px slate grey;
+  /*background: linear-gradient(to right, #00aaff, #00ff6c);*/
   padding: 5px;
   transition: all 0.5s;
 }
@@ -25,18 +14,13 @@
     height: 75px;
   }
   
-  .user-name {
-    color: #eee;
+  .repo-name {
+    color: #2279db;
     text-transform: uppercase;
     letter-spacing: 2px;
     font-weight: bold;
   }
-  
-  .user-time {
-    color: teal;
-    font-size: 12px;
-  }
-  
+
   .user-container:hover {
     box-shadow: 6px 6px 12px #d0d0d0, -6px -6px 12px #f0f0f0;
     transform: scale(1.1);
